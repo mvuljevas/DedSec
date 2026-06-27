@@ -160,3 +160,37 @@ Next suggested step:
 
 - Merge this workflow update automatically, tag the `develop` merge commit, and
   delete obsolete merged work branches.
+
+## 2026-06-27 - Block 005: SemVer Tagging Rules
+
+Branch:
+
+- `docs/004-semver-tagging-rules`
+
+Current state:
+
+- The previous `v0.3.0` tag on the PR #3 merge commit was deleted locally and
+  remotely.
+- The same PR #3 merge commit was retagged as `v0.2.1` because it was a
+  workflow correction, not a new product capability.
+- SemVer tagging rules are now documented directly in `AGENTS.md`.
+
+Decisions:
+
+- `PATCH` must be used for fixes, workflow corrections, documentation fixes,
+  dependency safety updates, CI/tooling maintenance, and compatible maintenance
+  changes.
+- `MINOR` must be reserved for new product capabilities, new app surfaces, or
+  meaningful compatible user-facing functionality.
+- Incorrect tags can be replaced only when they are not tied to public release
+  artifacts; otherwise a new corrective tag must be created.
+
+Risks:
+
+- The earlier `v0.2.0` tag remains as historical context from the previous
+  workflow block. Future tags should follow the clarified SemVer rules.
+
+Next suggested step:
+
+- Merge this SemVer workflow update automatically, tag it as the next patch,
+  and delete the obsolete work branch.

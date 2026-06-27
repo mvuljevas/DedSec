@@ -32,8 +32,7 @@ DedSec uses a full Gitflow path managed through Pull Requests:
    GitHub may warn about self-assignment and blocks self-review requests. Keep
    ownership visible through branch names, labels, PR scope, and merge history.
 7. After merging a work branch PR to `develop`, create a lightweight Git tag
-   on the merge commit following the semantic release sequence, for example
-   `v0.10.0`.
+   on the merge commit following the SemVer rules below.
 8. For release candidates merged to `staging` via PR, tag the commit as
    `v<major>.<minor>.<patch>-rc.<num>`, for example `v1.0.0-rc.1`.
 9. For production releases merged to `main` via PR, tag the commit with the
@@ -89,6 +88,37 @@ Automation rules:
 5. After a PR is merged and tagged, delete the obsolete work branch locally and
    remotely.
 6. Never delete `main`, `staging`, or `develop`.
+
+## SemVer Tagging
+
+DedSec uses SemVer tags even before `1.0.0`.
+
+Use the version segment that matches the real change:
+
+- `MAJOR`: incompatible public behavior, data, API, packaging, or workflow
+  contract changes.
+- `MINOR`: new product capability, new app surface, or meaningful compatible
+  user-facing functionality.
+- `PATCH`: bug fixes, workflow corrections, documentation fixes, dependency
+  safety updates, CI/tooling maintenance, and other compatible maintenance
+  changes.
+
+Examples:
+
+- Initial foundation or first usable scaffold: `v0.1.0`.
+- Workflow correction after `v0.1.0`: `v0.1.1`.
+- Dependency security fix after `v0.2.0`: `v0.2.1`.
+- New desktop diagnostic capability after `v0.2.1`: `v0.3.0`.
+
+Tagging rules:
+
+1. Do not use a `MINOR` bump for a fix or workflow correction.
+2. Do not use a `PATCH` bump for a new product capability.
+3. If a tag was created with the wrong SemVer level and has not been used for a
+   release artifact, replace it with the correct tag and document the
+   correction in `docs/SNAPSHOTS.md`.
+4. Once a tag is tied to public release artifacts, do not rewrite it; create a
+   new corrective tag instead.
 
 Standard labels:
 
