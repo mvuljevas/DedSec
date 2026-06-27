@@ -2,11 +2,6 @@
 
 - 
 
-## Ownership
-
-- [ ] Assigned to `@mvuljevas`
-- [ ] Reviewer request is omitted when `@mvuljevas` is the PR author
-
 ## Verification
 
 - 

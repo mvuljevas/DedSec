@@ -28,10 +28,9 @@ DedSec uses a full Gitflow path managed through Pull Requests:
    - `feature/*`, `chore/*`, `docs/*`, `fix/*`, `refactor/*`, `test/*` -> PR -> `develop` (Integration)
    - `develop` -> PR -> `staging` (Release Candidate)
    - `staging` -> PR -> `main` (Production Release)
-6. All Pull Requests must assign `@mvuljevas` as the responsible owner.
-   Do not request `@mvuljevas` as reviewer when `@mvuljevas` is the pull
-   request author, because GitHub blocks self-review requests and this creates
-   avoidable workflow friction.
+6. Do not assign `@mvuljevas` or request `@mvuljevas` as reviewer by default.
+   GitHub may warn about self-assignment and blocks self-review requests. Keep
+   ownership visible through branch names, labels, PR scope, and merge history.
 7. After merging a work branch PR to `develop`, create a lightweight Git tag
    on the merge commit following the semantic release sequence, for example
    `v0.10.0`.
@@ -41,6 +40,8 @@ DedSec uses a full Gitflow path managed through Pull Requests:
    GPG-signed tag `v<major>.<minor>.<patch>`, for example `v1.0.0`.
 10. Push relevant branches and tags after each completed block using
     `git push origin <branch> --tags`.
+11. Keep `main`, `staging`, and `develop` present at all times.
+12. Delete obsolete work branches after their pull requests are merged.
 
 Branch names must describe the product change, for example:
 
@@ -54,11 +55,9 @@ Branch names must describe the product change, for example:
 
 When opening pull requests on GitHub, follow these guidelines:
 
-1. Assignee: `@mvuljevas` must always be configured as assignee for all pull
-   requests.
-2. Reviewers: do not request `@mvuljevas` as reviewer when `@mvuljevas` is the
-   pull request author. Request a reviewer only when a different GitHub user or
-   team is responsible for review.
+1. Assignees: do not set assignees by default.
+2. Reviewers: do not request reviewers by default. Request a reviewer only when
+   a different GitHub user or team is explicitly responsible for review.
 3. PR labels: every PR must have at least one label representing the scope of
    the change. Standard labels are configured in `.github/labels.yml` and can
    be synced using `.github/create_labels.ps1`.
@@ -66,6 +65,30 @@ When opening pull requests on GitHub, follow these guidelines:
    updates.
 5. Foundation, architecture, security, and workflow changes must update
    `docs/SNAPSHOTS.md`.
+
+## Pull Request Automation
+
+Pull requests should be merged automatically when all of the following are
+true:
+
+- The PR is not a draft.
+- The PR targets the correct Gitflow branch.
+- Required local verification for the block has passed.
+- The PR has at least one scope label.
+- The PR has no known unresolved conflicts or explicit user hold.
+
+Automation rules:
+
+1. Work branch PRs targeting `develop` may be merged with a normal merge commit.
+2. After a PR is merged into `develop`, fetch the remote, create a lightweight
+   checkpoint tag on the merge commit, and push the tag.
+3. Release-candidate PRs from `develop` to `staging` may be merged once release
+   verification passes, then tagged as `v<major>.<minor>.<patch>-rc.<num>`.
+4. Production PRs from `staging` to `main` may be merged once release approval
+   is clear, then tagged with a GPG-signed stable tag.
+5. After a PR is merged and tagged, delete the obsolete work branch locally and
+   remotely.
+6. Never delete `main`, `staging`, or `develop`.
 
 Standard labels:
 
@@ -105,7 +128,8 @@ Each block should include:
 5. Update to `TECHDEBT.md` when debt is created, changed, or retired.
 6. Commit, merge through Gitflow, tag the merge commit on `develop`, and push
    with tags when the block is ready for repository publication.
-7. Suggested next logical step.
+7. Delete the obsolete work branch after the merge and tag are complete.
+8. Suggested next logical step.
 
 ## Snapshot Rules
 
