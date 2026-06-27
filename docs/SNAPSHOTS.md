@@ -120,5 +120,43 @@ Risks:
 
 Next suggested step:
 
-- Open a workflow-maintenance PR to `develop`, assign it to `@mvuljevas`, and
-  apply the `documentation` and `utility` labels.
+- Revisit the assignee workflow if GitHub reports ownership warnings, then keep
+  the rest of the PR labeling and Gitflow structure intact.
+
+## 2026-06-27 - Block 004: Automated Merge Workflow
+
+Branch:
+
+- `chore/003-pr-merge-automation`
+
+Current state:
+
+- PR #2 was merged into `develop`.
+- Lightweight checkpoint tag `v0.2.0` was created on the PR #2 merge commit.
+- The GitHub repository base branch was updated to `develop`.
+- Workflow rules now preserve `main`, `staging`, and `develop` as permanent
+  branches while deleting obsolete merged work branches.
+- Pull request rules no longer require default assignees or default reviewers.
+- Pull request automation rules now allow PRs to be merged automatically after
+  required verification, labels, and branch targets are confirmed.
+
+Decisions:
+
+- `@mvuljevas` should not be assigned by default because GitHub warns against
+  self-assignment in this workflow.
+- `@mvuljevas` should not be requested as reviewer by default because GitHub
+  blocks self-review requests.
+- Scope labels, PR descriptions, commit history, and merge history are the
+  source of workflow traceability.
+- Merged work branches should be deleted locally and remotely after their merge
+  commit has been tagged when applicable.
+
+Risks:
+
+- Automated merging requires care when a PR has unresolved conflicts, failed
+  checks, missing labels, or an explicit user hold.
+
+Next suggested step:
+
+- Merge this workflow update automatically, tag the `develop` merge commit, and
+  delete obsolete merged work branches.
