@@ -1,0 +1,99 @@
+{
+  "name": "dedsec",
+  "productName": "DedSec",
+  "version": "0.1.0",
+  "description": "DedSec is an open source product by Mauricio Vuljevas for mobile phone repair, maintenance, device identification, diagnostics, and optimization. It includes a cross-platform desktop application and a public website for product showcase, documentation, and download links.",
+  "author": {
+    "name": "Mauricio Vuljevas",
+    "url": "https://www.mvuljevas.com"
+  },
+  "license": "MIT",
+  "homepage": "https://www.mvuljevas.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvuljevas/DedSec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mvuljevas/DedSec/issues"
+  },
+  "keywords": [
+    "dedsec",
+    "open-source",
+    "mobile-repair",
+    "phone-repair",
+    "mobile-maintenance",
+    "mobile-optimization",
+    "device-identification",
+    "device-diagnostics",
+    "repair-tools",
+    "product-showcase",
+    "landing-page",
+    "documentation",
+    "downloads",
+    "desktop-app",
+    "electron",
+    "nextjs",
+    "typescript",
+    "i18n",
+    "multilingual",
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "dedsec": {
+    "projectType": "open-source-mobile-repair-tool",
+    "authorUri": "https://www.mvuljevas.com",
+    "repositoryUri": "https://github.com/mvuljevas/DedSec",
+    "productCategory": "Mobile phone repair, maintenance, identification, diagnostics, and optimization",
+    "surfaces": [
+      "desktop-application",
+      "product-showcase-website"
+    ],
+    "desktopPurpose": [
+      "repair-tasks",
+      "maintenance-workflows",
+      "device-identification",
+      "device-diagnostics",
+      "device-optimization"
+    ],
+    "webPurpose": [
+      "product-showcase",
+      "documentation",
+      "download-links"
+    ],
+    "supportedDesktopPlatforms": [
+      "windows",
+      "macos",
+      "linux"
+    ],
+    "defaultLocale": "es",
+    "fallbackLocale": "en"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build:packages && npm run build:apps",
+    "build:packages": "npm run build -w @dedsec/domain && npm run build -w @dedsec/i18n && npm run build -w @dedsec/ui",
+    "build:apps": "npm run build -w @dedsec/web && npm run build -w @dedsec/desktop",
+    "dev:web": "npm run dev -w @dedsec/web",
+    "dev:desktop": "npm run dev -w @dedsec/desktop",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.15"
+    },
+    "postcss": "8.5.15"
+  },
+  "packageManager": "npm@11.7.0",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
