@@ -1,0 +1,81 @@
+{
+  "name": "@dedsec/desktop",
+  "version": "0.1.0",
+  "description": "DedSec desktop application by Mauricio Vuljevas for mobile phone repair tasks, maintenance workflows, device identification, diagnostics, optimization, and local user-controlled reports across Windows, macOS, and Linux.",
+  "author": {
+    "name": "Mauricio Vuljevas",
+    "url": "https://www.mvuljevas.com"
+  },
+  "license": "MIT",
+  "homepage": "https://www.mvuljevas.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvuljevas/DedSec.git",
+    "directory": "apps/desktop"
+  },
+  "bugs": {
+    "url": "https://github.com/mvuljevas/DedSec/issues"
+  },
+  "keywords": [
+    "dedsec",
+    "mauricio-vuljevas",
+    "desktop-app",
+    "mobile-repair",
+    "phone-repair",
+    "mobile-maintenance",
+    "device-identification",
+    "device-diagnostics",
+    "mobile-optimization",
+    "electron",
+    "typescript",
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "dedsec": {
+    "surface": "desktop-application",
+    "authorUri": "https://www.mvuljevas.com",
+    "repositoryUri": "https://github.com/mvuljevas/DedSec",
+    "purpose": [
+      "repair-tasks",
+      "maintenance-workflows",
+      "device-identification",
+      "device-diagnostics",
+      "device-optimization",
+      "local-reports"
+    ],
+    "supportedPlatforms": [
+      "windows",
+      "macos",
+      "linux"
+    ]
+  },
+  "main": "dist-electron/main/main.js",
+  "scripts": {
+    "dev": "npm run build:main && cross-env DEDSEC_RENDERER_URL=http://127.0.0.1:5173 concurrently -k \"vite --host 127.0.0.1 --port 5173\" \"wait-on http://127.0.0.1:5173 && electron .\"",
+    "build": "npm run build:main && npm run build:renderer",
+    "build:main": "tsc -p tsconfig.node.json",
+    "build:renderer": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit"
+  },
+  "dependencies": {
+    "@dedsec/domain": "^0.1.0",
+    "@dedsec/i18n": "^0.1.0",
+    "@dedsec/ui": "^0.1.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "concurrently": "^10.0.3",
+    "cross-env": "^10.1.0",
+    "electron": "^42.5.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.0",
+    "wait-on": "^9.0.10"
+  }
+}
