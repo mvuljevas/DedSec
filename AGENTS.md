@@ -23,14 +23,16 @@ DedSec uses a full Gitflow path managed through Pull Requests:
 1. `main` is the production-ready branch.
 2. `develop` is the integration branch for completed features.
 3. `staging` is the release-candidate branch before `main`.
-4. Feature branches start from `develop`.
+4. Work branches start from `develop`.
 5. Merge transitions must be done via Pull Requests on GitHub:
-   - `feature/*` -> PR -> `develop` (Feature Integration)
+   - `feature/*`, `chore/*`, `docs/*`, `fix/*`, `refactor/*`, `test/*` -> PR -> `develop` (Integration)
    - `develop` -> PR -> `staging` (Release Candidate)
    - `staging` -> PR -> `main` (Production Release)
-6. All Pull Requests require code owner review and approval by `@mvuljevas`
-   before merging.
-7. After merging a feature branch PR to `develop`, create a lightweight Git tag
+6. All Pull Requests must assign `@mvuljevas` as the responsible owner.
+   Do not request `@mvuljevas` as reviewer when `@mvuljevas` is the pull
+   request author, because GitHub blocks self-review requests and this creates
+   avoidable workflow friction.
+7. After merging a work branch PR to `develop`, create a lightweight Git tag
    on the merge commit following the semantic release sequence, for example
    `v0.10.0`.
 8. For release candidates merged to `staging` via PR, tag the commit as
@@ -42,23 +44,27 @@ DedSec uses a full Gitflow path managed through Pull Requests:
 
 Branch names must describe the product change, for example:
 
-- `feature/001-project-foundation`
-- `feature/002-monorepo-scaffold`
-- `feature/003-web-download-page`
-- `feature/004-desktop-shell`
+- `chore/001-project-foundation`
+- `chore/002-monorepo-scaffold`
+- `docs/003-workflow-rules`
+- `feature/004-web-download-page`
+- `fix/005-desktop-launch-error`
 
 ## Pull Request Rules
 
 When opening pull requests on GitHub, follow these guidelines:
 
-1. Reviewers: `@mvuljevas` must always be configured as reviewer for all pull
-   requests. This is enforced through `.github/CODEOWNERS`.
-2. PR labels: every PR must have at least one label representing the scope of
+1. Assignee: `@mvuljevas` must always be configured as assignee for all pull
+   requests.
+2. Reviewers: do not request `@mvuljevas` as reviewer when `@mvuljevas` is the
+   pull request author. Request a reviewer only when a different GitHub user or
+   team is responsible for review.
+3. PR labels: every PR must have at least one label representing the scope of
    the change. Standard labels are configured in `.github/labels.yml` and can
    be synced using `.github/create_labels.ps1`.
-3. PR descriptions must include scope, verification, risks, and documentation
+4. PR descriptions must include scope, verification, risks, and documentation
    updates.
-4. Foundation, architecture, security, and workflow changes must update
+5. Foundation, architecture, security, and workflow changes must update
    `docs/SNAPSHOTS.md`.
 
 Standard labels:

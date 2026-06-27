@@ -28,7 +28,7 @@ Decisions:
   app-level integrations as each surface matures.
 - Application development is intentionally deferred until the repo foundation is
   reviewed.
-- Gitflow, code owner review, PR labels, snapshots, and tech debt tracking are
+- Gitflow, pull request ownership, PR labels, snapshots, and tech debt tracking are
   adopted from the GameDeck reference and adapted to DedSec.
 
 Risks:
@@ -87,3 +87,38 @@ Next suggested step:
 
 - Design the first public website content structure and desktop navigation
   model before adding repair or diagnostic behavior.
+
+## 2026-06-26 - Block 003: PR Ownership Workflow
+
+Branch:
+
+- `chore/002-pr-assignee-workflow`
+
+Current state:
+
+- PR #1 was merged into `develop`.
+- Lightweight checkpoint tag `v0.1.0` was created on the `develop` merge commit.
+- Workflow rules now require assigning `@mvuljevas` to every pull request rather
+  than requesting `@mvuljevas` as reviewer.
+- `.github/CODEOWNERS` was removed because CODEOWNERS requests reviews and
+  cannot assign pull requests.
+- The pull request template now includes an ownership checklist.
+
+Decisions:
+
+- Work branches may use prefixes that match the block scope, such as `chore/*`,
+  `docs/*`, `fix/*`, `refactor/*`, `test/*`, and `feature/*`.
+- `feature/*` is reserved for product functionality, not repository foundation
+  or workflow maintenance.
+- Reviewer requests are omitted when `@mvuljevas` is the pull request author to
+  avoid GitHub self-review restrictions.
+
+Risks:
+
+- Repository settings may still need to be reviewed in GitHub if branch
+  protection was configured to require CODEOWNERS review.
+
+Next suggested step:
+
+- Open a workflow-maintenance PR to `develop`, assign it to `@mvuljevas`, and
+  apply the `documentation` and `utility` labels.
