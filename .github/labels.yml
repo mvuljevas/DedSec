@@ -1,43 +1,119 @@
-- name: feature
-  color: "0E8A16"
-  description: "New product functionality or capabilities."
+- name: type:feature
+  color: "1F883D"
+  description: "New user-facing or project capability."
 
-- name: bug
-  color: "D93F0B"
-  description: "Runtime, behavior, or interface defect fixes."
+- name: type:bug
+  color: "D1242F"
+  description: "Incorrect behavior or regression."
 
-- name: hotfix
-  color: "E11D21"
-  description: "Urgent fixes for critical production or staging issues."
+- name: type:docs
+  color: "0969DA"
+  description: "Documentation, workflow, or snapshot change."
 
-- name: refactor
-  color: "5319E7"
-  description: "Code structure improvements without external behavior changes."
+- name: type:chore
+  color: "6E7781"
+  description: "Maintenance, tooling, CI/CD, or repository operations."
 
-- name: documentation
-  color: "0075CA"
-  description: "Documentation, workflow, and snapshot changes."
+- name: type:security
+  color: "8250DF"
+  description: "Security, privacy, sensitive workflow, or dependency safety."
 
-- name: performance
-  color: "FBCA04"
-  description: "Changes that optimize speed, memory, or resource usage."
+- name: type:techdebt
+  color: "BF8700"
+  description: "Known debt, accepted shortcut, or cleanup item."
 
-- name: security
-  color: "000000"
-  description: "Security patches, dependency audit work, or privacy adjustments."
-
-- name: dependencies
+- name: type:dependency
   color: "C5DEF5"
-  description: "npm, Electron, framework, or library dependency updates."
+  description: "npm, Electron, framework, or library dependency update."
 
-- name: utility
-  color: "bfdadc"
-  description: "Tooling, development scripts, CI/CD, and maintenance tasks."
+- name: type:refactor
+  color: "5319E7"
+  description: "Code structure improvement without external behavior change."
 
-- name: design
-  color: "F472B6"
-  description: "Visual design, CSS, layout, palette, and animation changes."
-
-- name: testing
+- name: type:test
   color: "4ADE80"
-  description: "Unit, integration, or verification script changes."
+  description: "Unit, integration, or verification test change."
+
+- name: type:design
+  color: "F472B6"
+  description: "Visual design, CSS, layout, palette, or animation change."
+
+- name: type:performance
+  color: "FBCA04"
+  description: "Speed, memory, resource, or system optimization change."
+
+- name: status:triage
+  color: "D0D7DE"
+  description: "Needs review or classification."
+
+- name: status:ready
+  color: "A2D2FF"
+  description: "Ready to work."
+
+- name: status:in-progress
+  color: "54AEFF"
+  description: "Currently being worked on."
+
+- name: status:blocked
+  color: "FBCA04"
+  description: "Blocked by dependency, decision, or failing prerequisite."
+
+- name: status:needs-review
+  color: "BFDADC"
+  description: "Needs human review before merge or release."
+
+- name: status:hold
+  color: "B60205"
+  description: "Explicitly paused or held."
+
+- name: priority:high
+  color: "CF222E"
+  description: "High priority."
+
+- name: priority:medium
+  color: "BF8700"
+  description: "Medium priority."
+
+- name: priority:low
+  color: "6E7781"
+  description: "Low priority."
+
+- name: area:workflow
+  color: "0969DA"
+  description: "Workflow, Gitflow, PR, labels, or automation."
+
+- name: area:docs
+  color: "0969DA"
+  description: "Documentation area."
+
+- name: area:web
+  color: "0E8A16"
+  description: "Public website."
+
+- name: area:desktop
+  color: "0E8A16"
+  description: "Electron desktop application."
+
+- name: area:domain
+  color: "0E8A16"
+  description: "Shared domain models and business rules."
+
+- name: area:i18n
+  color: "0E8A16"
+  description: "Locales, translation catalogs, and language policy."
+
+- name: area:security
+  color: "8250DF"
+  description: "Security and privacy model."
+
+- name: area:release
+  color: "5319E7"
+  description: "Versioning, packaging, signing, downloads, or release notes."
+
+- name: area:github
+  color: "0969DA"
+  description: "GitHub issues, labels, projects, PRs, or releases."
+
+- name: area:pc-ops
+  color: "FBCA04"
+  description: "PC diagnostics, optimization, repair, cleanup, or installer monitoring."

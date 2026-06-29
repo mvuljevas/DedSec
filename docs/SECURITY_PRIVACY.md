@@ -18,9 +18,10 @@ Before implementing diagnostics or support workflows, classify data as:
 
 - `public`: product copy, release notes, download metadata.
 - `user_profile`: account or contact information.
-- `device_metadata`: model, OS, storage, battery, or diagnostic details.
-- `sensitive_device_data`: identifiers, logs, serials, personal files, tokens,
-  or anything that could identify a customer or device owner.
+- `system_metadata`: OS, CPU, GPU, RAM, storage, process, network, installer,
+  or diagnostic details.
+- `sensitive_system_data`: usernames, hostnames, paths, logs, serials, personal
+  files, tokens, or anything that could identify a customer or computer owner.
 - `operational_secret`: API keys, signing certificates, tokens, and credentials.
 
 ## Desktop Security
@@ -35,7 +36,7 @@ Electron requirements:
 - Never accept arbitrary command strings from the renderer.
 - Keep OS-level actions behind user-visible consent.
 - Prefer OS-backed secure storage for secrets.
-- Log actions without storing unnecessary personal or device data.
+- Log actions without storing unnecessary personal or system data.
 
 ## Diagnostics and Optimization Guardrails
 

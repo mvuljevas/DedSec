@@ -1,6 +1,6 @@
 {
   "name": "@dedsec/i18n",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "description": "Shared DedSec internationalization package by Mauricio Vuljevas for multilingual product copy, locale metadata, translation namespaces, fallback policy, and web/desktop language conventions.",
   "author": {
     "name": "Mauricio Vuljevas",

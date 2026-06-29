@@ -2,16 +2,18 @@
 
 ## Product Vision
 
-DedSec is a product ecosystem for mobile repair and optimization, with a public
+DedSec is a product ecosystem for PC repair and optimization, with a public
 website for trust, explanation, and downloads, plus a desktop app that supports
-future diagnostic, optimization, support, and maintenance workflows.
+future diagnostics, resource optimization, safe cleanup, secure installer
+monitoring, and maintenance workflows.
 
 The product has two verticals:
 
 - Website: product presentation, features, support links, author identity,
   release notes, and platform-specific downloads.
-- Desktop app: cross-platform workspace for future device workflows, local
-  tools, settings, diagnostics, and support handoff.
+- Desktop app: cross-platform workspace for future PC repair, optimization,
+  secure installer monitoring, local tools, settings, diagnostics, and support
+  handoff.
 
 ## Foundation 1: Repository Preparation
 
@@ -25,12 +27,37 @@ Scope:
 - Architecture, roadmap, security/privacy, ADR, snapshots, and tech debt docs.
 - Empty app/package directories as placeholders.
 - Shared i18n architecture placeholder.
+- Lean context workflow docs and search-first repository guidance.
+- Namespaced GitHub labels for type, status, priority, and area.
+- PC/Desktop product scope cleanup in public metadata and docs.
 
 Out of scope:
 
 - Web app implementation.
 - Electron app implementation.
 - UI design implementation.
+- Packaging or release artifacts.
+
+## Foundation 2: PC Scope and Safety Architecture
+
+Goal: document the PC/Desktop product scope before adding privileged features.
+
+Scope:
+
+- System diagnostics boundaries.
+- Resource optimization boundaries.
+- Safe cleaner scan/confirm/report workflow.
+- Secure installer monitor workflow.
+- Optional installer network blocking model.
+- Real-time process and network visibility model.
+- Remnant cleanup categories and user-data protections.
+- Registry optimization policy, including what is allowed, risky, or excluded.
+
+Out of scope:
+
+- Implementing OS-level repair commands.
+- Running cleanup or registry changes.
+- Installer monitoring implementation.
 - Packaging or release artifacts.
 
 ## MVP 1: Public Website Shell
@@ -56,7 +83,7 @@ Out of scope:
 
 ## MVP 2: Desktop Shell
 
-Goal: create a cross-platform desktop foundation.
+Goal: create a cross-platform desktop foundation for PC optimization and repair.
 
 Scope:
 
@@ -70,7 +97,7 @@ Scope:
 
 Out of scope:
 
-- Device repair actions.
+- PC repair actions.
 - OS-level optimization commands.
 - Background services.
 - Auto-update.
@@ -82,14 +109,14 @@ Goal: define a safe diagnostic workflow before optimization features.
 Scope:
 
 - Explicit consent screens.
-- Device/session data classification.
+- System/session data classification.
 - Local diagnostic report structure.
 - Export/delete report controls.
 - Platform capability detection.
 
 Out of scope:
 
-- Automated device repair.
+- Automated system repair.
 - Cloud sync.
 - Remote support.
 

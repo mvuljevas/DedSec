@@ -1,9 +1,10 @@
 # DedSec
 
-Mobile phone repair and optimization, made simple.
+PC repair and optimization, made simple.
 
-DedSec is an open source tool by Mauricio Vuljevas for mobile phone repair,
-maintenance, device identification, diagnostics, and optimization.
+DedSec is an open source tool by Mauricio Vuljevas for PC repair, diagnostics,
+resource optimization, safe cleanup, secure installer monitoring, and system
+maintenance.
 
 The repository is a TypeScript monorepo with two product surfaces:
 
@@ -92,3 +93,7 @@ npm run dev:desktop
 DedSec follows the Gitflow and PR rules documented in [AGENTS.md](AGENTS.md).
 All meaningful project changes should update [docs/SNAPSHOTS.md](docs/SNAPSHOTS.md)
 and, when applicable, [TECHDEBT.md](TECHDEBT.md).
+
+For efficient assisted development, start with [docs/AI_CONTEXT.md](docs/AI_CONTEXT.md)
+and use [docs/AI_SEARCH.md](docs/AI_SEARCH.md) before opening broad source
+trees.

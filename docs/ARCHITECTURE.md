@@ -12,8 +12,8 @@ Planned applications:
 
 Planned shared packages:
 
-- `packages/domain`: shared product types, validation schemas, device/service
-  states, and business rules.
+- `packages/domain`: shared product types, validation schemas, PC service
+  states, diagnostics models, and business rules.
 - `packages/i18n`: shared locale configuration, translation catalogs, message
   keys, and formatting helpers for web and desktop.
 - `packages/ui`: shared UI primitives once web and desktop styles converge.
@@ -136,7 +136,7 @@ The website should be the first public trust surface:
 - Release notes and checksum links once builds exist.
 - Support and author links.
 
-The website should not imply device access or automated repair capabilities
+The website should not imply system access or automated repair capabilities
 until those features exist in the desktop app.
 
 ## Data Direction
@@ -180,5 +180,6 @@ Desktop distribution must eventually include:
 - Whether desktop diagnostics require native Node modules or OS-specific helper
   commands.
 - Auto-update provider and signing pipeline.
-- Privacy classification for device diagnostics and customer data.
+- Privacy classification for system diagnostics, process/network telemetry,
+  installer reports, and customer data.
 - Final list of launch locales beyond `es` and `en`.

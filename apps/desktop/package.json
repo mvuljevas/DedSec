@@ -1,7 +1,7 @@
 {
   "name": "@dedsec/desktop",
-  "version": "0.1.0",
-  "description": "DedSec desktop application by Mauricio Vuljevas for mobile phone repair tasks, maintenance workflows, device identification, diagnostics, optimization, and local user-controlled reports across Windows, macOS, and Linux.",
+  "version": "0.2.3",
+  "description": "DedSec desktop application by Mauricio Vuljevas for PC repair tasks, maintenance workflows, system diagnostics, resource optimization, secure installer monitoring, safe cleanup, and local user-controlled reports across Windows, macOS, and Linux.",
   "author": {
     "name": "Mauricio Vuljevas",
     "url": "https://www.mvuljevas.com"
@@ -20,12 +20,14 @@
     "dedsec",
     "mauricio-vuljevas",
     "desktop-app",
-    "mobile-repair",
-    "phone-repair",
-    "mobile-maintenance",
-    "device-identification",
-    "device-diagnostics",
-    "mobile-optimization",
+    "pc-repair",
+    "computer-repair",
+    "system-maintenance",
+    "system-diagnostics",
+    "resource-optimization",
+    "secure-installer",
+    "installer-monitoring",
+    "safe-cleaner",
     "electron",
     "typescript",
     "windows",
@@ -39,9 +41,11 @@
     "purpose": [
       "repair-tasks",
       "maintenance-workflows",
-      "device-identification",
-      "device-diagnostics",
-      "device-optimization",
+      "system-diagnostics",
+      "resource-optimization",
+      "safe-cleanup",
+      "secure-installer-monitoring",
+      "remnant-cleanup",
       "local-reports"
     ],
     "supportedPlatforms": [
@@ -60,9 +64,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.node.json --noEmit"
   },
   "dependencies": {
-    "@dedsec/domain": "^0.1.0",
-    "@dedsec/i18n": "^0.1.0",
-    "@dedsec/ui": "^0.1.0",
+    "@dedsec/domain": "^0.2.3",
+    "@dedsec/i18n": "^0.2.3",
+    "@dedsec/ui": "^0.2.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

@@ -4,7 +4,7 @@ export const product = {
   authorUri: "https://www.mvuljevas.com",
   repositoryUri: "https://github.com/mvuljevas/DedSec",
   category:
-    "Mobile phone repair, maintenance, identification, diagnostics, and optimization",
+    "PC repair, diagnostics, resource optimization, secure installer monitoring, safe cleanup, and system maintenance",
   desktopPlatforms: ["windows", "macos", "linux"] as const
 } as const;
 
@@ -14,17 +14,17 @@ export const serviceAreas = [
   {
     id: "repair",
     label: "Repair tasks",
-    description: "Guided workflows for mobile phone repair operations."
+    description: "Guided workflows for PC repair operations."
   },
   {
     id: "maintenance",
     label: "Maintenance",
-    description: "Routine maintenance flows for device health and readiness."
+    description: "Routine maintenance flows for system health and readiness."
   },
   {
-    id: "identification",
-    label: "Device identification",
-    description: "Device model, platform, and capability identification."
+    id: "inventory",
+    label: "System inventory",
+    description: "Hardware, operating system, storage, and capability inventory."
   },
   {
     id: "diagnostics",

@@ -13,13 +13,13 @@ type LayoutProps = {
 export const metadata: Metadata = {
   title: "DedSec",
   description:
-    "Open source tool for mobile phone repair, maintenance, device identification, diagnostics, and optimization.",
+    "Open source tool for PC repair, diagnostics, resource optimization, safe cleanup, and system maintenance.",
   authors: [{ name: "Mauricio Vuljevas", url: "https://www.mvuljevas.com" }],
   metadataBase: new URL("https://www.mvuljevas.com"),
   openGraph: {
     title: "DedSec",
     description:
-      "Open source desktop and web product for mobile phone repair and optimization.",
+      "Open source desktop and web product for PC repair and optimization.",
     url: "https://github.com/mvuljevas/DedSec",
     siteName: "DedSec",
     type: "website"

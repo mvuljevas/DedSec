@@ -1,6 +1,6 @@
 {
   "name": "@dedsec/ui",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "description": "Shared DedSec user interface package by Mauricio Vuljevas for reusable design tokens, components, accessibility patterns, and product interaction systems across the website and desktop app.",
   "author": {
     "name": "Mauricio Vuljevas",

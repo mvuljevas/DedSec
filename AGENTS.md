@@ -15,6 +15,30 @@ automated or assisted coding sessions.
 - Use frequent project snapshots so the project remains understandable after
   context compaction or handoff.
 - Do not begin application implementation during foundation-only blocks.
+- DedSec is currently PC/Desktop-focused. Do not introduce non-PC repair or
+  optimization workflows unless the project owner explicitly reopens that
+  product direction in a future block.
+
+## Lean Context Loading
+
+DedSec adopts the useful parts of the `lean-context` preset from
+`mvuljevas/AGENTS` as a workflow layer.
+
+- Retrieve context before reading context.
+- Do not read the whole repository unless the user explicitly asks for a full
+  audit.
+- Start with `README.md`, `AGENTS.md`, `docs/AI_CONTEXT.md`, and recent entries
+  in `docs/SNAPSHOTS.md`.
+- Use `docs/AI_SEARCH.md` to locate relevant files before opening broad source
+  trees.
+- Use `rg` before opening files.
+- Prefer small file slices over complete files.
+- Respect `.aiignore` and `.rgignore` unless the user explicitly asks to
+  inspect ignored material.
+- Avoid generated output, dependency folders, build artifacts, caches, secrets,
+  and lockfiles unless they are directly relevant.
+- Update `docs/AI_CONTEXT.md` when architecture, commands, stack, product
+  scope, or important project boundaries change.
 
 ## Gitflow
 
@@ -120,19 +144,17 @@ Tagging rules:
 4. Once a tag is tied to public release artifacts, do not rewrite it; create a
    new corrective tag instead.
 
-Standard labels:
+Standard labels use namespaced groups adapted from the AGENTS template library:
 
-- `feature`: New product functionality or capabilities.
-- `bug`: Runtime, behavior, or interface defect fixes.
-- `hotfix`: Urgent fixes for critical production or staging issues.
-- `refactor`: Code structure improvements without external behavior changes.
-- `documentation`: Documentation, workflow, and snapshot changes.
-- `performance`: Resource, memory, or speed optimization.
-- `security`: Security, dependency audit, or privacy changes.
-- `dependencies`: npm, Electron, framework, or library dependency updates.
-- `utility`: Tooling, development scripts, CI/CD, and maintenance tasks.
-- `design`: Visual design, CSS, layout, palette, and animation changes.
-- `testing`: Unit, integration, or verification script changes.
+- `type:*`: kind of work, such as feature, bug, docs, chore, security,
+  techdebt, dependency, refactor, test, design, or performance.
+- `status:*`: triage, ready, in-progress, blocked, needs-review, or hold.
+- `priority:*`: high, medium, or low.
+- `area:*`: workflow, docs, web, desktop, domain, i18n, security, release,
+  github, or pc-ops.
+
+Labels are configured in `.github/labels.yml` and synchronized with
+`.github/create_labels.ps1`.
 
 ## Commit Style
 
@@ -159,7 +181,20 @@ Each block should include:
 6. Commit, merge through Gitflow, tag the merge commit on `develop`, and push
    with tags when the block is ready for repository publication.
 7. Delete the obsolete work branch after the merge and tag are complete.
-8. Suggested next logical step.
+8. Update the authoritative version source when the iteration changes project
+   state.
+9. Suggested next logical step.
+
+## Next-Step Fallback
+
+At the end of every iteration, suggest the next logical step using this order:
+
+1. `docs/ROADMAP.md`.
+2. `TECHDEBT.md`.
+3. Ask the project owner how to proceed.
+
+Do not invent product direction when roadmap and technical debt do not provide
+a clear next action.
 
 ## Snapshot Rules
 
@@ -184,10 +219,10 @@ Each snapshot should state:
 
 DedSec prioritizes:
 
-1. Clear, trustworthy presentation of the mobile repair and optimization
-   product.
+1. Clear, trustworthy presentation of the PC repair and optimization product.
 2. Secure desktop behavior with explicit OS permissions.
 3. Cross-platform desktop compatibility for Windows, macOS, and Linux.
-4. Privacy-first handling of diagnostic or customer device information.
+4. Privacy-first handling of diagnostic, process, network, installer, and local
+   system information.
 5. Download flows that are verifiable and easy to maintain.
 6. Shared product language and UI consistency between web and desktop.

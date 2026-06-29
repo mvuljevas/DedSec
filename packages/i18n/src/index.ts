@@ -14,13 +14,13 @@ const messages = {
     product: {
       name: "DedSec",
       description:
-        "Herramienta open source para reparación, mantenimiento, identificación, diagnóstico y optimización de celulares."
+        "Herramienta open source para reparación, diagnóstico, optimización de recursos, limpieza segura y mantenimiento de computadoras."
     },
     web: {
-      eyebrow: "Open source · Desktop · Reparación móvil",
-      headline: "Reparación y optimización de celulares, hecha simple.",
+      eyebrow: "Open source · Desktop · Optimización PC",
+      headline: "Reparación y optimización de computadoras, hecha simple.",
       intro:
-        "DedSec prepara una app desktop multiplataforma para tareas reales de reparación, mantenimiento, identificación de dispositivos, diagnóstico y optimización.",
+        "DedSec prepara una app desktop multiplataforma para reparación, diagnóstico, optimización de recursos, monitoreo seguro de instaladores y limpieza de remanentes.",
       downloadCta: "Descargas en preparación",
       docsCta: "Documentación",
       author: "Creado por Mauricio Vuljevas"
@@ -29,7 +29,7 @@ const messages = {
       title: "DedSec Desktop",
       status: "Base desktop inicial",
       description:
-        "Shell seguro para la futura herramienta de reparación, mantenimiento, identificación, diagnóstico y optimización de celulares.",
+        "Shell seguro para la futura herramienta de reparación, diagnóstico, optimización de recursos y mantenimiento de computadoras.",
       boundary:
         "Las acciones de sistema vivirán en el proceso principal de Electron y requerirán consentimiento explícito.",
       openRepository: "Abrir repositorio",
@@ -40,13 +40,13 @@ const messages = {
     product: {
       name: "DedSec",
       description:
-        "Open source tool for mobile phone repair, maintenance, identification, diagnostics, and optimization."
+        "Open source tool for PC repair, diagnostics, resource optimization, safe cleanup, and system maintenance."
     },
     web: {
-      eyebrow: "Open source · Desktop · Mobile repair",
-      headline: "Mobile phone repair and optimization, made simple.",
+      eyebrow: "Open source · Desktop · PC optimization",
+      headline: "PC repair and optimization, made simple.",
       intro:
-        "DedSec is preparing a cross-platform desktop app for real repair tasks, maintenance, device identification, diagnostics, and optimization.",
+        "DedSec is preparing a cross-platform desktop app for PC repair, diagnostics, resource optimization, secure installer monitoring, and remnant cleanup.",
       downloadCta: "Downloads in preparation",
       docsCta: "Documentation",
       author: "Created by Mauricio Vuljevas"
@@ -55,7 +55,7 @@ const messages = {
       title: "DedSec Desktop",
       status: "Initial desktop foundation",
       description:
-        "Secure shell for the future mobile phone repair, maintenance, identification, diagnostics, and optimization tool.",
+        "Secure shell for the future PC repair, diagnostics, resource optimization, and system maintenance tool.",
       boundary:
         "System actions will live in Electron's main process and require explicit consent.",
       openRepository: "Open repository",

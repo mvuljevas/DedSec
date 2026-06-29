@@ -2,6 +2,12 @@
 
 - 
 
+## Labels
+
+- `type:`
+- `area:`
+- `priority:` if applicable
+
 ## Verification
 
 - 
@@ -10,7 +16,7 @@
 
 - [ ] Updated `docs/SNAPSHOTS.md`
 - [ ] Updated `TECHDEBT.md` if technical debt changed
-- [ ] Updated architecture/security docs if project rules changed
+- [ ] Updated architecture/security/workflow docs if project rules changed
 
 ## Risks
 

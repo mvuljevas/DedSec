@@ -1,7 +1,7 @@
 {
   "name": "@dedsec/web",
-  "version": "0.1.0",
-  "description": "DedSec public website by Mauricio Vuljevas for showcasing the mobile repair and optimization product, publishing documentation, and providing platform-specific desktop download links.",
+  "version": "0.2.3",
+  "description": "DedSec public website by Mauricio Vuljevas for showcasing the PC repair and optimization product, publishing documentation, and providing platform-specific desktop download links.",
   "author": {
     "name": "Mauricio Vuljevas",
     "url": "https://www.mvuljevas.com"
@@ -23,8 +23,10 @@
     "landing-page",
     "documentation",
     "download-links",
-    "mobile-repair",
-    "mobile-optimization",
+    "pc-repair",
+    "pc-optimization",
+    "system-diagnostics",
+    "secure-installer",
     "nextjs",
     "typescript",
     "i18n"
@@ -46,9 +48,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@dedsec/domain": "^0.1.0",
-    "@dedsec/i18n": "^0.1.0",
-    "@dedsec/ui": "^0.1.0",
+    "@dedsec/domain": "^0.2.3",
+    "@dedsec/i18n": "^0.2.3",
+    "@dedsec/ui": "^0.2.3",
     "next": "^16.3.0-preview.5",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"

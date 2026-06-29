@@ -1,4 +1,4 @@
-# Script to synchronize GitHub labels for DedSec repository
+# Synchronize GitHub labels for the DedSec repository.
 # Usage: .github/create_labels.ps1 -Token "YOUR_GITHUB_TOKEN"
 
 param (
@@ -27,21 +27,30 @@ $headers = @{
     "User-Agent"    = "DedSec-Label-Sync"
 }
 
-$labels = @(
-    @{ name = "feature"; color = "0E8A16"; description = "New product functionality or capabilities." },
-    @{ name = "bug"; color = "D93F0B"; description = "Runtime, behavior, or interface defect fixes." },
-    @{ name = "hotfix"; color = "E11D21"; description = "Urgent fixes for critical production or staging issues." },
-    @{ name = "refactor"; color = "5319E7"; description = "Code structure improvements without external behavior changes." },
-    @{ name = "documentation"; color = "0075CA"; description = "Documentation, workflow, and snapshot changes." },
-    @{ name = "performance"; color = "FBCA04"; description = "Changes that optimize speed, memory, or resource usage." },
-    @{ name = "security"; color = "000000"; description = "Security patches, dependency audit work, or privacy adjustments." },
-    @{ name = "dependencies"; color = "C5DEF5"; description = "npm, Electron, framework, or library dependency updates." },
-    @{ name = "utility"; color = "bfdadc"; description = "Tooling, development scripts, CI/CD, and maintenance tasks." },
-    @{ name = "design"; color = "F472B6"; description = "Visual design, CSS, layout, palette, and animation changes." },
-    @{ name = "testing"; color = "4ADE80"; description = "Unit, integration, or verification script changes." }
-)
+$labelFile = Join-Path (Get-Location) ".github/labels.yml"
+if (-not (Test-Path $labelFile)) {
+    Write-Error "Label source file not found: $labelFile"
+    exit 1
+}
 
-Write-Host "Syncing labels for repository: $repo..."
+$labels = @()
+$current = $null
+
+foreach ($line in Get-Content $labelFile) {
+    if ($line -match "^- name: (.+)$") {
+        if ($current) { $labels += $current }
+        $current = @{
+            name = $Matches[1].Trim().Trim('"')
+        }
+    } elseif ($current -and $line -match "^\s+color: (.+)$") {
+        $current.color = $Matches[1].Trim().Trim('"')
+    } elseif ($current -and $line -match "^\s+description: (.+)$") {
+        $current.description = $Matches[1].Trim().Trim('"')
+    }
+}
+if ($current) { $labels += $current }
+
+Write-Host "Syncing $($labels.Count) labels for repository: $repo..."
 
 foreach ($l in $labels) {
     $name = [Uri]::EscapeDataString($l.name)
@@ -50,11 +59,9 @@ foreach ($l in $labels) {
     $exists = $false
     try {
         $existing = Invoke-RestMethod -Uri $url -Headers $headers -Method Get -ErrorAction SilentlyContinue
-        if ($existing) {
-            $exists = $true
-        }
+        if ($existing) { $exists = $true }
     } catch {
-        # 404 is expected if it does not exist.
+        # 404 is expected if the label does not exist.
     }
 
     $bodyObj = @{

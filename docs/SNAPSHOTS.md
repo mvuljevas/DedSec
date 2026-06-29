@@ -194,3 +194,53 @@ Next suggested step:
 
 - Merge this SemVer workflow update automatically, tag it as the next patch,
   and delete the obsolete work branch.
+
+## 2026-06-29 - Block 006: Workflow Governance and PC Scope Alignment
+
+Branch:
+
+- `docs/005-workflow-governance`
+
+Current state:
+
+- The `mvuljevas/AGENTS` reference repository was analyzed for templates,
+  presets, workflows, naming, labels, versioning, and context guidance.
+- No direct Electron/monorepo template exists in that reference, so DedSec
+  adopted the useful `lean-context` preset incrementally instead of copying a
+  full template.
+- DedSec now includes AI context, search, token-budget, conventions, naming,
+  and workflow docs adapted to this project.
+- GitHub labels moved to a namespaced model: `type:*`, `status:*`,
+  `priority:*`, and `area:*`.
+- Public product metadata and shared copy were realigned to PC/Desktop repair,
+  diagnostics, resource optimization, safe cleanup, secure installer monitoring,
+  and system maintenance.
+- The package version was bumped to `0.2.3` for this patch-level governance and
+  scope correction.
+
+Decisions:
+
+- DedSec remains a PC/Desktop product. Non-PC repair and optimization workflows
+  are out of scope unless explicitly reopened by the project owner.
+- The `lean-context` workflow layer is useful for this repository because it
+  reduces context waste while preserving DedSec's existing Gitflow and release
+  rules.
+- Workflow governance changes should continue using patch SemVer unless they
+  introduce an incompatible workflow contract.
+- Privileged PC operations must be designed with scan-first, confirm-later,
+  allowlist, logging, reporting, and user-data protection rules before
+  implementation.
+
+Risks:
+
+- Existing GitHub labels may need to be synchronized with
+  `.github/create_labels.ps1` after this branch is merged.
+- The next PC operations architecture block must define registry optimization,
+  network blocking, installer monitoring, and cleanup safety before code ports
+  ideas from the legacy PC reference.
+
+Next suggested step:
+
+- Create the PC scope and safety architecture block before implementing
+  privileged diagnostics, optimization, cleanup, installer monitoring, or
+  registry operations.

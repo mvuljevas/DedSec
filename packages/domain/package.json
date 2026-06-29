@@ -1,7 +1,7 @@
 {
   "name": "@dedsec/domain",
-  "version": "0.1.0",
-  "description": "Shared DedSec domain package by Mauricio Vuljevas for product models, repair and maintenance workflow states, device identification schemas, validation rules, and cross-app business logic.",
+  "version": "0.2.3",
+  "description": "Shared DedSec domain package by Mauricio Vuljevas for product models, PC repair and maintenance workflow states, system diagnostics schemas, validation rules, and cross-app business logic.",
   "author": {
     "name": "Mauricio Vuljevas",
     "url": "https://www.mvuljevas.com"
@@ -21,9 +21,10 @@
     "mauricio-vuljevas",
     "domain-models",
     "validation",
-    "mobile-repair",
-    "device-identification",
-    "device-diagnostics",
+    "pc-repair",
+    "system-diagnostics",
+    "resource-optimization",
+    "secure-installer",
     "typescript"
   ],
   "dedsec": {
@@ -33,7 +34,7 @@
     "purpose": [
       "product-models",
       "repair-workflow-states",
-      "device-identification-schemas",
+      "system-diagnostics-schemas",
       "validation-rules",
       "cross-app-business-logic"
     ]
