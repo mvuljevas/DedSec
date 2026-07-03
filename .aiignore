@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+dist-electron/
+release/
+apps/*/dist/
+apps/*/.next/
+packages/*/dist/
+
+# Caches and generated artifacts
+.cache/
+.turbo/
+.vite/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+package-lock.json
+
+# Secrets and local state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+local-data/
+tmp/
+temp/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/

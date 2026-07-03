@@ -1,0 +1,63 @@
+{
+  "name": "@dedsec/web",
+  "version": "0.1.0",
+  "description": "DedSec public website by Mauricio Vuljevas for showcasing the PC repair and optimization product, publishing documentation, and providing platform-specific desktop download links.",
+  "author": {
+    "name": "Mauricio Vuljevas",
+    "url": "https://www.mvuljevas.com"
+  },
+  "license": "MIT",
+  "homepage": "https://www.mvuljevas.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvuljevas/DedSec.git",
+    "directory": "apps/web"
+  },
+  "bugs": {
+    "url": "https://github.com/mvuljevas/DedSec/issues"
+  },
+  "keywords": [
+    "dedsec",
+    "mauricio-vuljevas",
+    "product-showcase",
+    "landing-page",
+    "documentation",
+    "download-links",
+    "pc-repair",
+    "pc-optimization",
+    "system-diagnostics",
+    "secure-installer",
+    "nextjs",
+    "typescript",
+    "i18n"
+  ],
+  "dedsec": {
+    "surface": "product-showcase-website",
+    "authorUri": "https://www.mvuljevas.com",
+    "repositoryUri": "https://github.com/mvuljevas/DedSec",
+    "purpose": [
+      "product-showcase",
+      "documentation",
+      "desktop-download-links"
+    ]
+  },
+  "scripts": {
+    "dev": "next dev --webpack --hostname 127.0.0.1 --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3000",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@dedsec/domain": "^0.1.0",
+    "@dedsec/i18n": "^0.1.0",
+    "@dedsec/ui": "^0.1.0",
+    "next": "^16.3.0-preview.5",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
+  }
+}

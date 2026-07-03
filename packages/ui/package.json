@@ -1,0 +1,58 @@
+{
+  "name": "@dedsec/ui",
+  "version": "0.1.0",
+  "description": "Shared DedSec user interface package by Mauricio Vuljevas for reusable design tokens, components, accessibility patterns, and product interaction systems across the website and desktop app.",
+  "author": {
+    "name": "Mauricio Vuljevas",
+    "url": "https://www.mvuljevas.com"
+  },
+  "license": "MIT",
+  "homepage": "https://www.mvuljevas.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvuljevas/DedSec.git",
+    "directory": "packages/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/mvuljevas/DedSec/issues"
+  },
+  "keywords": [
+    "dedsec",
+    "mauricio-vuljevas",
+    "ui",
+    "design-system",
+    "components",
+    "accessibility",
+    "desktop-app",
+    "website",
+    "typescript"
+  ],
+  "dedsec": {
+    "surface": "shared-ui",
+    "authorUri": "https://www.mvuljevas.com",
+    "repositoryUri": "https://github.com/mvuljevas/DedSec",
+    "purpose": [
+      "design-tokens",
+      "reusable-components",
+      "accessibility-patterns",
+      "web-and-desktop-interaction-systems"
+    ]
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^6.0.3"
+  }
+}

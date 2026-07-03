@@ -1,0 +1,233 @@
+# Agent Workflow
+
+This file defines the working rules for anyone contributing to DedSec through
+automated or assisted coding sessions.
+
+## Core Rules
+
+- Never use agent names, tool names, or signatures in branch names, commit
+  messages, pull requests, or generated documentation.
+- Work in small, traceable blocks.
+- Prefer conservative changes that match the current project stage.
+- Do not revert user changes unless explicitly requested.
+- Keep documentation updated when a decision affects architecture, security,
+  workflow, or product scope.
+- Use frequent project snapshots so the project remains understandable after
+  context compaction or handoff.
+- Do not begin application implementation during foundation-only blocks.
+- DedSec is currently PC/Desktop-focused. Do not introduce non-PC repair or
+  optimization workflows unless the project owner explicitly reopens that
+  product direction in a future block.
+
+## Lean Context Loading
+
+DedSec adopts the useful parts of the `lean-context` preset from
+`mvuljevas/AGENTS` as a workflow layer.
+
+- Retrieve context before reading context.
+- Do not read the whole repository unless the user explicitly asks for a full
+  audit.
+- Start with `README.md`, `AGENTS.md`, `docs/AI_CONTEXT.md`, and recent entries
+  in `docs/SNAPSHOTS.md`.
+- Use `docs/AI_SEARCH.md` to locate relevant files before opening broad source
+  trees.
+- Use `rg` before opening files.
+- Prefer small file slices over complete files.
+- Respect `.aiignore` and `.rgignore` unless the user explicitly asks to
+  inspect ignored material.
+- Avoid generated output, dependency folders, build artifacts, caches, secrets,
+  and lockfiles unless they are directly relevant.
+- Update `docs/AI_CONTEXT.md` when architecture, commands, stack, product
+  scope, or important project boundaries change.
+
+## Gitflow
+
+DedSec uses a full Gitflow path managed through Pull Requests:
+
+1. `main` is the production-ready branch.
+2. `develop` is the integration branch for completed features.
+3. `staging` is the release-candidate branch before `main`.
+4. Work branches start from `develop`.
+5. Merge transitions must be done via Pull Requests on GitHub:
+   - `feature/*`, `chore/*`, `docs/*`, `fix/*`, `refactor/*`, `test/*` -> PR -> `develop` (Integration)
+   - `develop` -> PR -> `staging` (Release Candidate)
+   - `staging` -> PR -> `main` (Production Release)
+6. Do not assign `@mvuljevas` or request `@mvuljevas` as reviewer by default.
+   GitHub may warn about self-assignment and blocks self-review requests. Keep
+   ownership visible through branch names, labels, PR scope, and merge history.
+7. Do not tag routine work-branch merges to `develop`.
+8. For release candidates merged to `staging` via PR, tag the commit as
+   an annotated GPG-signed tag `v<major>.<minor>.<patch>-rc.<num>`, for example
+   `v1.0.0-rc.1`.
+9. For production releases merged to `main` via PR, tag the commit with the
+   annotated GPG-signed tag `v<major>.<minor>.<patch>`, for example `v1.0.0`.
+10. Push relevant branches and tags after each completed block using
+    `git push origin <branch> --tags`.
+11. Keep `main`, `staging`, and `develop` present at all times.
+12. Delete obsolete work branches after their pull requests are merged.
+
+Branch names must describe the product change, for example:
+
+- `chore/001-project-foundation`
+- `chore/002-monorepo-scaffold`
+- `docs/003-workflow-rules`
+- `feature/004-web-download-page`
+- `fix/005-desktop-launch-error`
+
+## Pull Request Rules
+
+When opening pull requests on GitHub, follow these guidelines:
+
+1. Assignees: do not set assignees by default.
+2. Reviewers: do not request reviewers by default. Request a reviewer only when
+   a different GitHub user or team is explicitly responsible for review.
+3. PR labels: every PR must have at least one label representing the scope of
+   the change. Standard labels are configured in `.github/labels.yml` and can
+   be synced using `.github/create_labels.ps1`.
+4. PR descriptions must include scope, verification, risks, and documentation
+   updates.
+5. Foundation, architecture, security, and workflow changes must update
+   `docs/SNAPSHOTS.md`.
+
+## Pull Request Automation
+
+Pull requests should be merged automatically when all of the following are
+true:
+
+- The PR is not a draft.
+- The PR targets the correct Gitflow branch.
+- Required local verification for the block has passed.
+- The PR has at least one scope label.
+- The PR has no known unresolved conflicts or explicit user hold.
+
+Automation rules:
+
+1. Work branch PRs targeting `develop` may be merged with a normal merge commit.
+2. After a PR is merged into `develop`, fetch the remote, create a lightweight
+   checkpoint tag on the merge commit, and push the tag.
+3. Release-candidate PRs from `develop` to `staging` may be merged once release
+   verification passes, then tagged as `v<major>.<minor>.<patch>-rc.<num>`.
+4. Production PRs from `staging` to `main` may be merged once release approval
+   is clear, then tagged with a GPG-signed stable tag.
+5. After a PR is merged and tagged, delete the obsolete work branch locally and
+   remotely.
+6. Never delete `main`, `staging`, or `develop`.
+
+## SemVer Tagging
+
+DedSec uses SemVer versions before `1.0.0`, but tags are reserved for approved
+release milestones.
+
+Use the version segment that matches the real change:
+
+- `MAJOR`: incompatible public behavior, data, API, packaging, or workflow
+  contract changes.
+- `MINOR`: new product capability, new app surface, or meaningful compatible
+  user-facing functionality.
+- `PATCH`: bug fixes, workflow corrections, documentation fixes, dependency
+  safety updates, CI/tooling maintenance, and other compatible maintenance
+  changes.
+
+Version examples:
+
+- Initial foundation or first usable scaffold: `0.1.0`.
+- Workflow correction after `0.1.0`: `0.1.1`.
+- Dependency security fix after `0.2.0`: `0.2.1`.
+- New desktop diagnostic capability after `0.2.1`: `0.3.0`.
+
+Tagging rules:
+
+1. Do not create tags for foundation/scaffolding, routine documentation blocks,
+   or regular `develop` merges unless the project owner explicitly approves a
+   release milestone.
+2. Never create lightweight tags. All tags must be annotated and GPG-signed.
+3. Do not use a `MINOR` bump for a fix or workflow correction.
+4. Do not use a `PATCH` bump for a new product capability.
+5. If a tag was created with the wrong SemVer level and has not been used for a
+   release artifact, replace it with the correct tag and document the
+   correction in `docs/SNAPSHOTS.md`.
+6. Once a tag is tied to public release artifacts, do not rewrite it; create a
+   new corrective tag instead.
+
+Standard labels use namespaced groups adapted from the AGENTS template library:
+
+- `type:*`: kind of work, such as feature, bug, docs, chore, security,
+  techdebt, dependency, refactor, test, design, or performance.
+- `status:*`: triage, ready, in-progress, blocked, needs-review, or hold.
+- `priority:*`: high, medium, or low.
+- `area:*`: workflow, docs, web, desktop, domain, i18n, security, release,
+  github, or pc-ops.
+
+Labels are configured in `.github/labels.yml` and synchronized with
+`.github/create_labels.ps1`.
+
+## Commit Style
+
+Commit messages must be clear and product-focused:
+
+- `docs: add project foundation plan`
+- `chore: scaffold monorepo workspace`
+- `feat: add desktop shell`
+- `fix: handle missing download artifact`
+
+Do not include generated-by signatures, agent/tool names, or unrelated metadata.
+All commits and tags must be cryptographically signed using GPG. If signing is
+not available, stop and report the blocker instead of creating unsigned history.
+
+## Block Workflow
+
+Each block should include:
+
+1. Scope confirmation or a clear assumption.
+2. Focused implementation or documentation change.
+3. Local verification when applicable.
+4. Update to `docs/SNAPSHOTS.md`.
+5. Update to `TECHDEBT.md` when debt is created, changed, or retired.
+6. Commit with a GPG signature, merge through Gitflow, and push when the block
+   is ready for repository publication.
+7. Delete the obsolete work branch after the merge is complete.
+8. Update the authoritative version source when the iteration changes project
+   state.
+9. Suggested next logical step.
+
+## Next-Step Fallback
+
+At the end of every iteration, suggest the next logical step using this order:
+
+1. `docs/ROADMAP.md`.
+2. `TECHDEBT.md`.
+3. Ask the project owner how to proceed.
+
+Do not invent product direction when roadmap and technical debt do not provide
+a clear next action.
+
+## Snapshot Rules
+
+Record snapshots frequently in `docs/SNAPSHOTS.md`, especially after:
+
+- Architecture decisions.
+- New feature foundations.
+- Security/privacy decisions.
+- Release or branch merges.
+- Context compaction risk.
+
+Each snapshot should state:
+
+- Date.
+- Branch or block.
+- Current state.
+- Decisions made.
+- Risks or open questions.
+- Next suggested step.
+
+## Product Priorities
+
+DedSec prioritizes:
+
+1. Clear, trustworthy presentation of the PC repair and optimization product.
+2. Secure desktop behavior with explicit OS permissions.
+3. Cross-platform desktop compatibility for Windows, macOS, and Linux.
+4. Privacy-first handling of diagnostic, process, network, installer, and local
+   system information.
+5. Download flows that are verifiable and easy to maintain.
+6. Shared product language and UI consistency between web and desktop.

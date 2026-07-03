@@ -1,0 +1,137 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and test output
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+bower_components/
+web_modules/
+
+# Build outputs
+dist/
+build/
+out/
+.output/
+release/
+dist-electron/
+dist-renderer/
+apps/*/dist/
+apps/*/.next/
+apps/*/out/
+packages/*/dist/
+
+# TypeScript and tool caches
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.cache/
+.parcel-cache/
+.turbo/
+.next/
+.nuxt/
+.svelte-kit/
+.docusaurus/
+**/.vitepress/dist/
+**/.vitepress/cache/
+
+# Package manager caches
+.npm/
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.yarn-integrity
+*.tgz
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+certs/
+
+# Electron packaging and signing
+*.dmg
+*.exe
+*.AppImage
+*.snap
+*.deb
+*.rpm
+*.blockmap
+*.asar
+electron-builder.env
+
+# Local databases and generated user data
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+local-data/
+tmp/
+temp/
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor and IDE local state
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+
+# Misc
+.node_repl_history
+.serverless/
+.firebase/
+.dynamodb/
+.tern-port
+.vscode-test/

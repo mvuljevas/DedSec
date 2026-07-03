@@ -1,0 +1,58 @@
+{
+  "name": "@dedsec/i18n",
+  "version": "0.1.0",
+  "description": "Shared DedSec internationalization package by Mauricio Vuljevas for multilingual product copy, locale metadata, translation namespaces, fallback policy, and web/desktop language conventions.",
+  "author": {
+    "name": "Mauricio Vuljevas",
+    "url": "https://www.mvuljevas.com"
+  },
+  "license": "MIT",
+  "homepage": "https://www.mvuljevas.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvuljevas/DedSec.git",
+    "directory": "packages/i18n"
+  },
+  "bugs": {
+    "url": "https://github.com/mvuljevas/DedSec/issues"
+  },
+  "keywords": [
+    "dedsec",
+    "mauricio-vuljevas",
+    "i18n",
+    "internationalization",
+    "multilingual",
+    "locale",
+    "translation",
+    "typescript"
+  ],
+  "dedsec": {
+    "surface": "shared-internationalization",
+    "authorUri": "https://www.mvuljevas.com",
+    "repositoryUri": "https://github.com/mvuljevas/DedSec",
+    "defaultLocale": "es",
+    "fallbackLocale": "en",
+    "purpose": [
+      "multilingual-product-copy",
+      "locale-metadata",
+      "translation-namespaces",
+      "fallback-policy",
+      "web-and-desktop-language-conventions"
+    ]
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

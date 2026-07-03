@@ -1,0 +1,57 @@
+{
+  "name": "@dedsec/domain",
+  "version": "0.1.0",
+  "description": "Shared DedSec domain package by Mauricio Vuljevas for product models, PC repair and maintenance workflow states, system diagnostics schemas, validation rules, and cross-app business logic.",
+  "author": {
+    "name": "Mauricio Vuljevas",
+    "url": "https://www.mvuljevas.com"
+  },
+  "license": "MIT",
+  "homepage": "https://www.mvuljevas.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvuljevas/DedSec.git",
+    "directory": "packages/domain"
+  },
+  "bugs": {
+    "url": "https://github.com/mvuljevas/DedSec/issues"
+  },
+  "keywords": [
+    "dedsec",
+    "mauricio-vuljevas",
+    "domain-models",
+    "validation",
+    "pc-repair",
+    "system-diagnostics",
+    "resource-optimization",
+    "secure-installer",
+    "typescript"
+  ],
+  "dedsec": {
+    "surface": "shared-domain",
+    "authorUri": "https://www.mvuljevas.com",
+    "repositoryUri": "https://github.com/mvuljevas/DedSec",
+    "purpose": [
+      "product-models",
+      "repair-workflow-states",
+      "system-diagnostics-schemas",
+      "validation-rules",
+      "cross-app-business-logic"
+    ]
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
